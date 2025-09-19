@@ -45,10 +45,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		381705D92E7D0306009E4159 /* Exceptions for "Reminder" folder in "ReminderUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ReminderUITests/ReminderUITests.swift,
+				ReminderUITests/ReminderUITestsLaunchTests.swift,
+			);
+			target = 38F4E6B52E692EFA007D922B /* ReminderUITests */;
+		};
 		38F4E6BE2E692EFA007D922B /* Exceptions for "Reminder" folder in "Reminder" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+				ReminderUITests/ReminderUITests.swift,
+				ReminderUITests/ReminderUITestsLaunchTests.swift,
 			);
 			target = 38F4E6952E692EF8007D922B /* Reminder */;
 		};
@@ -59,6 +69,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				38F4E6BE2E692EFA007D922B /* Exceptions for "Reminder" folder in "Reminder" target */,
+				381705D92E7D0306009E4159 /* Exceptions for "Reminder" folder in "ReminderUITests" target */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -66,11 +77,6 @@
 		38F4E6AF2E692EFA007D922B /* ReminderTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ReminderTests;
-			sourceTree = "<group>";
-		};
-		38F4E6B92E692EFA007D922B /* ReminderUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ReminderUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -108,7 +114,6 @@
 			children = (
 				38F4E6982E692EF8007D922B /* Reminder */,
 				38F4E6AF2E692EFA007D922B /* ReminderTests */,
-				38F4E6B92E692EFA007D922B /* ReminderUITests */,
 				38F4E6972E692EF8007D922B /* Products */,
 				44BF8C330A365D06400D52C6 /* Pods */,
 				65B3E9C00C8CEC974CBF6C66 /* Frameworks */,
@@ -209,9 +214,6 @@
 			);
 			dependencies = (
 				38F4E6B82E692EFA007D922B /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				38F4E6B92E692EFA007D922B /* ReminderUITests */,
 			);
 			name = ReminderUITests;
 			productName = ReminderUITests;
