@@ -28,6 +28,7 @@ class HomeViewController:UIViewController {
         
         setup()
         setupNavigationBar()
+        checkForExistingData()
     }
     
     private func setupNavigationBar() {
@@ -41,10 +42,11 @@ class HomeViewController:UIViewController {
     private func setup(){
         view.addSubview(contentView)
         view.backgroundColor = Colors.gray600
-        buildHierarchy()
+        contentView.delegate = self
+        setupConstraints()
         
     }
-    private func buildHierarchy(){
+    private func setupConstraints(){
         setupContentViewToBounds(contentView: contentView)
     }
     
@@ -55,6 +57,50 @@ class HomeViewController:UIViewController {
         self.flowDelegate.logout()
   
     }
+     private func checkForExistingData(){
+        if let user = UserDefaultsManager.loadUser(){
+            contentView.nameTextField.text = UserDefaultsManager.loadUserName()
+             
+         }
+         
+         if let savedImage = UserDefaultsManager.loadProfileImage(){
+             contentView.profileImage.image = savedImage
+         }
+  
+    }
     
 }
 
+extension HomeViewController: HomeViewDelegate{
+    func didTapProfileImage(){
+        selectProfileImage()
+        //chamr metodo quie aprenseta seletor de imagem
+    }
+}
+
+extension HomeViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+    private func selectProfileImage(){
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true)
+    }
+    
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editedImage = info[.editedImage] as? UIImage{
+            contentView.profileImage.image = editedImage
+            UserDefaultsManager.saveProfileImage(image: editedImage)
+            
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            contentView.profileImage.image = originalImage
+            UserDefaultsManager.saveProfileImage(image: originalImage)
+            
+        }
+        
+        dismiss(animated: true)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
+    }
+}
