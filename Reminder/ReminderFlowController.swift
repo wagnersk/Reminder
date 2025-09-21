@@ -7,18 +7,16 @@
 
 import UIKit
 
+
 class ReminderFlowController {
     //MARK: - Properties
     private var navigationController: UINavigationController?
-    private let viewControllerFactory: ViewControllersFactoryProtocool
-
-
+    private let viewControllerFactory: ViewControllersFactoryProtocol
     //MARK: - init
     public init(){
         self.viewControllerFactory = ViewControllersFactory()
-        
     }
-   
+    
     //MARK: - startFlow
     func start() -> UINavigationController? {
         let startViewController = viewControllerFactory.makeSplashViewController(flowDelegate: self)
@@ -33,21 +31,17 @@ class ReminderFlowController {
 extension ReminderFlowController: LoginBottomSheetFlowDelegate {
     func navigateToHome() {
         self.navigationController?.dismiss(animated: false)
-
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .red
+        let viewController = viewControllerFactory.makeHomeViewController(flowDelegate: self)
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
-    
 }
 
 
 //MARK: - Splash
 extension ReminderFlowController: SplashFlowDelegate {
     func openLoginBottomSheet() {
-
-        let loginBottomSheet = viewControllerFactory.makeLoginBottomSheetViewController(flowDelegate: self)
+        
+        let loginBottomSheet = viewControllerFactory.makeLoginBottomSheetController(flowDelegate: self)
         loginBottomSheet.modalPresentationStyle = .overCurrentContext
         loginBottomSheet.modalTransitionStyle = .crossDissolve
         navigationController?.present(loginBottomSheet, animated: false) {
@@ -56,12 +50,26 @@ extension ReminderFlowController: SplashFlowDelegate {
         
         func navigateToHome() {
             self.navigationController?.dismiss(animated: false)
-
+            
             let viewController = UIViewController()
             viewController.view.backgroundColor = .red
             self.navigationController?.pushViewController(viewController, animated: true)
         }
         
     }
+    
+}
+
+//MARK: - Home
+extension ReminderFlowController: HomeFlowDelegate {
+    func navigateToRecipes() {
+        //
+    }
+    
+    func logout() {
+        self.navigationController?.popViewController(animated: true)
+        self.openLoginBottomSheet()
+    }
+    
     
 }

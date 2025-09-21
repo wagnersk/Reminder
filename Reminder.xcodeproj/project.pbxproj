@@ -45,11 +45,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		381705D92E7D0306009E4159 /* Exceptions for "Reminder" folder in "ReminderUITests" target */ = {
+		38364F1A2E7E26F000E3FFF1 /* Exceptions for "ReminderUITests" folder in "Reminder" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				ReminderUITests/ReminderUITests.swift,
-				ReminderUITests/ReminderUITestsLaunchTests.swift,
+				ReminderUITests.swift,
+				ReminderUITestsLaunchTests.swift,
+			);
+			target = 38F4E6952E692EF8007D922B /* Reminder */;
+		};
+		38364F1B2E7E26F000E3FFF1 /* Exceptions for "ReminderUITests" folder in "ReminderUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ReminderUITests.swift,
+				ReminderUITestsLaunchTests.swift,
 			);
 			target = 38F4E6B52E692EFA007D922B /* ReminderUITests */;
 		};
@@ -57,19 +65,25 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-				ReminderUITests/ReminderUITests.swift,
-				ReminderUITests/ReminderUITestsLaunchTests.swift,
 			);
 			target = 38F4E6952E692EF8007D922B /* Reminder */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		38364F172E7E26F000E3FFF1 /* ReminderUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				38364F1A2E7E26F000E3FFF1 /* Exceptions for "ReminderUITests" folder in "Reminder" target */,
+				38364F1B2E7E26F000E3FFF1 /* Exceptions for "ReminderUITests" folder in "ReminderUITests" target */,
+			);
+			path = ReminderUITests;
+			sourceTree = "<group>";
+		};
 		38F4E6982E692EF8007D922B /* Reminder */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				38F4E6BE2E692EFA007D922B /* Exceptions for "Reminder" folder in "Reminder" target */,
-				381705D92E7D0306009E4159 /* Exceptions for "Reminder" folder in "ReminderUITests" target */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -112,11 +126,12 @@
 		38F4E68D2E692EF8007D922B = {
 			isa = PBXGroup;
 			children = (
+				65B3E9C00C8CEC974CBF6C66 /* Frameworks */,
+				44BF8C330A365D06400D52C6 /* Pods */,
+				38F4E6972E692EF8007D922B /* Products */,
 				38F4E6982E692EF8007D922B /* Reminder */,
 				38F4E6AF2E692EFA007D922B /* ReminderTests */,
-				38F4E6972E692EF8007D922B /* Products */,
-				44BF8C330A365D06400D52C6 /* Pods */,
-				65B3E9C00C8CEC974CBF6C66 /* Frameworks */,
+				38364F172E7E26F000E3FFF1 /* ReminderUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,6 +186,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				38364F172E7E26F000E3FFF1 /* ReminderUITests */,
 				38F4E6982E692EF8007D922B /* Reminder */,
 			);
 			name = Reminder;
