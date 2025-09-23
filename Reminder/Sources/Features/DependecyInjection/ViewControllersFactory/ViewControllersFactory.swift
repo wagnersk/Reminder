@@ -5,22 +5,29 @@
 //  Created by Wagner Sobreira on 9/19/25.
 //
 
-    // func makeLoginBottomSheetController(flowDelegate: LoginBottomSheetFlowDelegate) -> LoginBottomSheetViewController
-   // func makeHomeViewController(flowDelegate: HomeFlowDelegate) -> HomeViewController
- 
+// func makeLoginBottomSheetController(flowDelegate: LoginBottomSheetFlowDelegate) -> LoginBottomSheetViewController
+// func makeHomeViewController(flowDelegate: HomeFlowDelegate) -> HomeViewController
+
 
 import UIKit
 
 final class ViewControllersFactory: ViewControllersFactoryProtocol {
+    
+    func makeRecipesViewController() -> NewReceiptViewController {
+        let viewController = NewReceiptViewController()
+        return viewController
+        
+    }
+    
     func makeSplashViewController(flowDelegate: SplashFlowDelegate) ->
     SplashViewController {
         let contentView = SplashView()
         let viewController = SplashViewController(contentView: contentView,
                                                   flowDelegate: flowDelegate)
         return viewController
-
+        
     }
-     func makeLoginBottomSheetController(flowDelegate: LoginBottomSheetFlowDelegate) ->
+    func makeLoginBottomSheetController(flowDelegate: LoginBottomSheetFlowDelegate) ->
     LoginBottomSheetViewController {
         let contentView = LoginBottomSheetView()
         let viewController = LoginBottomSheetViewController(contentView: contentView,
@@ -29,7 +36,7 @@ final class ViewControllersFactory: ViewControllersFactoryProtocol {
         
     }
     
-     func makeHomeViewController(flowDelegate: HomeFlowDelegate) ->
+    func makeHomeViewController(flowDelegate: HomeFlowDelegate) ->
     HomeViewController {
         let contentView = HomeView()
         let viewController = HomeViewController(contentView: contentView,
@@ -37,9 +44,9 @@ final class ViewControllersFactory: ViewControllersFactoryProtocol {
         return viewController
         
     }
-
     
-  //  let loginView = LoginBottomSheetView()
+    
+    //  let loginView = LoginBottomSheetView()
     
     
 }
